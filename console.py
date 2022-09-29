@@ -2,6 +2,7 @@
 """ Console Module """
 import cmd
 import sys
+import models
 from models.base_model import BaseModel
 from models.__init__ import storage
 from models.user import User
@@ -157,7 +158,7 @@ class HBNBCommand(cmd.Cmd):
         print("Creates a class of any type")
         print("[Usage]: create <className>\n")
 
-    def do_show(self, args):
+    def do_show(self, arg):
         """ Method to show an individual object """
         args = shlex.split(arg)
         if len(args) == 0:
@@ -180,7 +181,7 @@ class HBNBCommand(cmd.Cmd):
         print("Shows an individual instance of a class")
         print("[Usage]: show <className> <objectId>\n")
 
-    def do_destroy(self, args):
+    def do_destroy(self, arg):
         """ Destroys a specified object """
         args = shlex.split(arg)
         if len(args) == 0:
@@ -203,7 +204,7 @@ class HBNBCommand(cmd.Cmd):
         print("Destroys an individual instance of a class")
         print("[Usage]: destroy <className> <objectId>\n")
 
-    def do_all(self, args):
+    def do_all(self, arg):
         """ Shows all objects, or all objects of a class"""
         args = shlex.split(arg)
         obj_list = []
@@ -237,7 +238,7 @@ class HBNBCommand(cmd.Cmd):
         """ """
         print("Usage: count <class_name>")
 
-    def do_update(self, args):
+    def do_update(self, arg):
         """ Updates a certain object with new info """
         args = shlex.split(arg)
         integers = ["number_rooms", "number_bathrooms", "max_guest",
